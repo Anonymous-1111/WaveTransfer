@@ -66,6 +66,27 @@
          background-color: rgba(0,0,0,0.01);
          box-shadow: 0px 0px 1px rgba(0,0,0,1);
          }
+         table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            border-bottom: 2px solid black;
+        }
+        tr:last-child td {
+            border-bottom: 2px solid black;
+        }
+        .centered-figure {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+        }
       </style>
    </head>
    <body>
@@ -87,6 +108,13 @@
       <h3>
         Contents
       </h3>
+      <ul>
+        <li><a href="#subjective_evaluation">A. Subjective Evaluation</a></li>
+        <ul>
+          <li><a href="#test_description">I. Test Description</a></li>
+          <li><a href="#results">II. Results and Analysis</a></li>
+        </ul>
+        <li><a href="#listening_samples">B. Listening Samples</a></li>
       <ul>
 	<li>
 	  <a href="#tt16">I. Timbre Transfer at 16 kHz</a>
@@ -110,10 +138,110 @@
 		<li><a href="#tt44-vc_to_ps">6. (Vibraphone + Clarinet) &rarr; (Piano + strings)</a></li>
 	      </ul>
 	</li>
-	<li><a href="#references">References</a></li>
+      </ul>
+      <li><a href="#references">References</a></li>
       </ul>
 
+  <h2 id="subjective_evaluation">A. Subjective Evaluation</h2>
+  <h3 id="test_description">I. Test Description</h3>
+  <p>The subjective test is designed to evaluate mixture-to-mixture timbre transfer at 16 kHz. It consists of 10 questions, with half focusing on the timbre transfer from piano-strings to vibraphone-clarinet, and the other half on the transfer from vibraphone-clarinet to piano-strings. Each question includes 7 conditions:</p>
+<ul>
+    <li>Reference audio</li>
+    <li>DiffTransfer</li>
+    <li>Music-STAR</li>
+    <li>WT<sup>16</sup><sub>global</sub>with both WG-6 and BDDM-20-generated noise schedules</li>
+    <li>WT<sup>16</sup><sub>mix</sub> with both WG-6 and BDDM-20-generated noise schedules</li>
+</ul>
+<p>Participants rate the conditions on a scale from 0 (worst score) to 100 (best score) based on their perception of the quality of the timbre transfer, without knowing that a hidden reference is included in each set. The order of the questions and the conditions within each question are randomized for each participant.</p>
 
+  <h3 id="results">II. Results and Analysis</h3>
+  <p>Responses were collected from 10 participants, 80% of whom have several years of musical experience. We show hereafter the results computed using the raw scores.</p>
+  <table>
+    <caption><b>Table 1:</b> 95% Confidence Intervals of the Subjective Evaluation for Both Timbre Transfer Types (Raw Scores)</caption>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Mean ± Margin of Error</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Reference</td>
+        <td>87.57 ± 2.71</td>
+      </tr>
+      <tr>
+        <td>DiffTransfer</td>
+        <td>29.81 ± 3.74</td>
+      </tr>
+      <tr>
+        <td>Music-STAR</td>
+        <td>23.46 ± 3.20</td>
+      </tr>
+      <tr>
+        <td>WT<sub>global</sub><sup>16</sup> with BDDM-20</td>
+        <td>53.72 ± 3.78</td>
+      </tr>
+      <tr>
+        <td>WT<sub>global</sub><sup>16</sup> with WG-6</td>
+        <td>55.12 ± 3.58</td>
+      </tr>
+      <tr>
+        <td>WT<sub>mix</sub><sup>16</sup> with BDDM-20</td>
+        <td><strong>64.84 ± 4.01</strong></td>
+      </tr>
+      <tr>
+        <td>WT<sub>mix</sub><sup>16</sup> with WG-6</td>
+        <td>57.48 ± 3.91</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The boxplot presented below summarizes five key statistics: the minimum, first quartile (Q1), median, third quartile (Q3), and maximum. The central box represents the interquartile range (IQR), containing the middle 50% of the data, with the bottom of the box marking Q1, the top marking Q3, and the line inside indicating the median. The whiskers extend from the box to the smallest and largest values within 1.5 times the IQR from Q1 and Q3, respectively. Data points outside the whiskers are considered outliers and are typically shown as individual dots.</p>
+  <img src="images/raw.png" alt="" class="centered-figure">
+</div>
+  <p>As can be noticed from the results, WaveTransfer exhibits the highest timbre transfer quality compared to DiffTransfer and Music-STAR.</p>
+  <p>Since some participants did not assign a score of 100 to the condition they considered the best for certain questions, we rescaled the scores. This rescaling ensures that, for each participant and each question, the highest score is normalized to 100.</p>
+  <table>
+    <caption><b>Talbe 2:</b> 95% Confidence Intervals of the Subjective Evaluation for Both Timbre Transfer Types (Rescaled Scores)</caption>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Mean ± Margin of Error</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Reference</td>
+        <td>97.94 ± 1.29</td>
+      </tr>
+      <tr>
+        <td>DiffTransfer</td>
+        <td>33.74 ± 4.14</td>
+      </tr>
+      <tr>
+        <td>Music-STAR</td>
+        <td>27.73 ± 3.96</td>
+      </tr>
+      <tr>
+        <td>WT<sub>global</sub><sup>16</sup> with BDDM-20</td>
+        <td>60.06 ± 3.82</td>
+      </tr>
+      <tr>
+        <td>WT<sub>global</sub><sup>16</sup> with WG-6</td>
+        <td>61.93 ± 3.81</td>
+      </tr>
+      <tr>
+        <td>WT<sub>mix</sub><sup>16</sup> with BDDM-20</td>
+        <td><strong>72.12 ± 3.78</strong></td>
+      </tr>
+      <tr>
+        <td>WT<sub>mix</sub><sup>16</sup> with WG-6</td>
+        <td>63.98 ± 3.85</td>
+      </tr>
+    </tbody>
+  </table>
+  <img src="images/rescaled.png" alt="" class="centered-figure">
+
+  <h2 id="listening_samples">B. Listening Samples</h2>
   <h3 id="tt16">I. Timbre Transfer at 16 kHz</h3>
   In this section, we consider the timbre transfer task at a sampling rate of 16 kHz. It should be noted that for both DiffTransfer and Music-STAR, six different models are trained for each type of timbre transformation and that their mixtures are obtained from the models designed specifically for mixture-to-mixture timbre transfer, rather than combining individual tracks generated from single instrument models.
     <h4 id="tt16-piano_to_vibraphone">1. Piano &rarr; Vibraphone</h4>
